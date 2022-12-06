@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-</head>
-<body>
-    {% load static %}
-    <a href="{% static 'portfolio/2-enhanced.pdf' %}" target="_blank" >Умножалка</a>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
     <h1>This is Portfolio Project Home Page</h1>
     <img src="{% static 'portfolio/teatron.jpg' %}" width=800 height=600 alt="">
     <br>
+    <h3>
+        <a href="{%url 'blog:All_blog' %}">Blogs</a>
+        <br>
+        <a href="{% static 'portfolio/2-enhanced.pdf' %}" target="_blank" >Умножалка</a>
+    </h3>
+    
+
     {% for project in  projects %}
         <br>
         {{project.title}}
@@ -26,5 +27,5 @@
         {% endif %}
         
     {% endfor %}
-</body>
-</html>
+{% endblock content %}
+

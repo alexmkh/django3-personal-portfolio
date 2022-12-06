@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Blogs</h2>
+
+    <h3>Nick has written {{blogs_count}} blog post{{blogs_count|pluralize}}</h3>
+
+    <a href={% url 'home'%}>Home</a>
     {% for blog in blogs %}
         <a href=" {% url 'blog:detail' blog.id %} "><h3> {{blog.title}} </h3></a>
-        <p>Created on {{blog.created_on}}  </p>
-        <h5> {{blog.description}} </h5>
+        <p>Posted on {{blog.created_on|date:'M d Y'|upper}} </p>
+        <h3> {{blog.description|safe|truncatechars:100}} </h3>
         <hr>
         <br>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

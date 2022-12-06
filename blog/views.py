@@ -3,9 +3,11 @@ from .models import Blog
 
 # Create your views here.
 def all_blogs(request):
-    blogs = Blog.objects.order_by('-created_on')[:5]
+    blogs_count = Blog.objects.count()
+    blogs = Blog.objects.order_by('-created_on')
     context = {
-        'blogs': blogs
+        'blogs': blogs,
+        'blogs_count': blogs_count
     }
     return render(request, 'blog/blog.html', context)
 
