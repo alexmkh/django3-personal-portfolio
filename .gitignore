@@ -4,4 +4,5 @@
 __pycache__/
 local_settings.py
 /static/
-
+**/migrations/*
+!**/migrations/__init__.py
