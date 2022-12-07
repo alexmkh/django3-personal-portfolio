@@ -1,11 +1,7 @@
 *.log
 *.pot
 *.pyc
-#__pycache__/
+__pycache__/
 local_settings.py
-#/static/
-*/migrations/
-#*.sqlite3
-#__init__.py
-#manage.py
-#admin.py
+/static/
+
